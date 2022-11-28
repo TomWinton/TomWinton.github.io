@@ -1,1 +1,226 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="stylesheet" href="stylee.css"><title>Boop</title><script defer="defer" src="bundle.js"></script></head><body style="background-color:#eee;"><noscript>You need to enable JavaScript to run this app.</noscript><div class="header__container"><div class="headertext">BumsSeatsMaker</div></div><div id="root" class="wrapper"><div class=""><div class="two-thirds"><div class="innerContainer" id="stageContainer" style="width: 650px; height: 450px; padding:0px !important; margin-bottom:20px;"></div></div><div class="one-third"><div class="innerContainer fieldset" id="buttonContainer"></div><div class="govuk-body-m">This bit basically just shows basic making a stage / seat booking area thing using Konva. Konva uses HTML5 Canvas. It also allows us to export and import existing canvas's as JSON schemas.<br/>Adding a section is the idea of like.. a block of seats, each circle is an individual element meant to be a seat and we can append additional attributes to each circle. So if each element can</div></div><div class="width-container"><div class="bottomContainer" id="bottomContainer"></div></div></div></div></body></html>
+
+
+<html>
+<head>
+<title>HOWDY DOODY</title>
+<link rel="stylesheet" href="main.css" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+<script src="https://use.fontawesome.com/e1ce4b5f90.js"></script>
+</head>
+<body>
+
+<audio controls autoplay hidden loop id="backgroundmusic">
+  <source src="bakermat.mp3" type="audio/mpeg" >
+</audio>
+<div id="PartyBucket">
+<img src="max.gif" width="100%">
+ </div>
+
+<div id="BigBucket">
+<div id="header">
+<h2>Control Panel</h2>
+</div>
+
+<div id="wordbucket">
+<div class="buttoncontainer">
+<div id="Button1" class="button" onclick="document.getElementById('wordOnePlayer').play()">EATING!</div>
+<input type="text" id="wordOne"  value="eating" onkeyup="wordOneBuilder()" /> 
+</div>
+<div class="buttoncontainer">
+<div id="Button2" class="button" onclick="document.getElementById('wordTwoPlayer').play()">ICECREAM!</div>
+<input type="text" id="wordTwo" value="icecream" onkeyup="wordTwoBuilder()" /> 
+</div>
+<div class="buttoncontainer">
+<div id="Button3" class="button" onclick="document.getElementById('wordThreePlayer').play()">RIDING!</div>
+<input type="text" id="wordThree" value="riding" onkeyup="wordThreeBuilder()" /> 
+</div>
+
+<div class="buttoncontainer">
+<div id="Button4" class="button" onclick="document.getElementById('wordFourPlayer').play()">PONIES!</div>
+<input type="text" id="wordFour" value="ponies" onkeyup="wordFourBuilder()" /> 
+</div>
+
+
+<div class="buttoncontainer">
+<div id="Button5" class="button" onclick="document.getElementById('wordFivePlayer').play()">WHOOP!</div>
+<input type="text" id="wordFive"  value="whoop" onkeyup="wordFiveBuilder()" /> 
+</div>
+
+<div class="buttoncontainer">
+<div id="Button6" class="button" onclick="document.getElementById('wordSixPlayer').play()">FABULOUS!</div>
+<input type="text" id="wordSix"  value="fabulous" onkeyup="wordSixBuilder()" /> 
+</div>
+
+<div class="buttoncontainer">
+<div id="Button7" class="button" onclick="document.getElementById('wordSevenPlayer').play()">BUTTOCKS!</div>
+<input type="text" id="wordSeven"  value="buttocks" onkeyup="wordSevenBuilder()" /> 
+</div>
+
+<div class="buttoncontainer">
+<div id="Button8" class="button" onclick="document.getElementById('wordEightPlayer').play()">SHITHEAD!</div>
+<input type="text" id="wordEight"  value="shithead" onkeyup="wordEightBuilder()" /> 
+</div>
+
+</div id="wordbucket">
+<div id="playpausebucket">
+<div class="playpause" onclick="pauseSong()">
+<i class="fa fa-pause" aria-hidden="true"></i>
+</div>
+
+<div class="playpause" onclick="playSong()">
+<i class="fa fa-play" aria-hidden="true"></i>
+</div>
+
+
+</div>
+
+<div id="note">
+<p>
+Type a word into each text box and press the button to hear the pronunciation. <br/>
+All of the words come from <a href="http://www.howjsay.com">howjsay.com</a> so all credit goes to J. Thankyou J for saying every word in the dictionary. Whoever you are, you are my hero.<br/>
+The song is called "Zomer" and is by <a href="https://soundcloud.com/bakermatmusic">"BakerMat"</a>.
+</p>
+</div>
+</div>
+
+
+
+
+  <audio id="wordOnePlayer">
+    <source src="http://www.howjsay.com/mp3/eating.mp3">
+    
+  </audio>
+  <audio id="wordTwoPlayer">
+    <source src="http://www.howjsay.com/mp3/icecream.mp3">
+  </audio>
+    <audio id="wordThreePlayer">
+    <source src="http://www.howjsay.com/mp3/riding.mp3">
+  </audio>
+      <audio id="wordFourPlayer">
+    <source src="http://www.howjsay.com/mp3/ponies.mp3">
+  </audio>
+  </audio>
+      <audio id="wordFivePlayer">
+    <source src="http://www.howjsay.com/mp3/whoop.mp3">
+  </audio>
+  </audio>
+      <audio id="wordSixPlayer">
+    <source src="http://www.howjsay.com/mp3/fabulous.mp3">
+  </audio>
+  </audio>
+      <audio id="wordSevenPlayer">
+    <source src="http://www.howjsay.com/mp3/buttocks.mp3">
+  </audio>
+  </audio>
+      <audio id="wordEightPlayer">
+    <source src="http://www.howjsay.com/mp3/shithead.mp3">
+  </audio>
+  
+<script>
+function wordOneBuilder() {
+    var str1 = "http://www.howjsay.com/mp3/";
+	var str3 = ".mp3";
+    var res = str1.concat(wordOne.value).concat(str3);
+    document.getElementById("Button1").innerHTML = wordOne.value;
+	document.getElementById("Button1").innerHTML += "!"
+	 var forJay = res.toLowerCase();
+	 wordOnePlayer.src=forJay;
+}
+</script>
+<script>
+function wordTwoBuilder() {
+    var str1 = "http://www.howjsay.com/mp3/";
+	var str3 = ".mp3";
+    var res = str1.concat(wordTwo.value).concat(str3);
+    document.getElementById("Button2").innerHTML = wordTwo.value;
+	document.getElementById("Button2").innerHTML += "!"
+	var forJay = res.toLowerCase()
+	 wordTwoPlayer.src=forJay;
+}
+</script>
+<script>
+function wordThreeBuilder() {
+    var str1 = "http://www.howjsay.com/mp3/";
+	var str3 = ".mp3";
+    var res = str1.concat(wordThree.value).concat(str3);
+    document.getElementById("Button3").innerHTML = wordThree.value;
+	document.getElementById("Button3").innerHTML += "!"
+	var forJay = res.toLowerCase()
+	 wordThreePlayer.src=forJay;
+}
+</script>
+<script>
+function wordFourBuilder() {
+    var str1 = "http://www.howjsay.com/mp3/";
+	var str3 = ".mp3";
+    var res = str1.concat(wordFour.value).concat(str3);
+    document.getElementById("Button4").innerHTML = wordFour.value;
+	document.getElementById("Button4").innerHTML += "!"
+	var forJay = res.toLowerCase()
+	 wordFourPlayer.src=forJay;
+}
+</script>
+
+<script>
+function wordFiveBuilder() {
+    var str1 = "http://www.howjsay.com/mp3/";
+	var str3 = ".mp3";
+    var res = str1.concat(wordFive.value).concat(str3);
+    document.getElementById("Button5").innerHTML = wordFive.value;
+	document.getElementById("Button5").innerHTML += "!"
+	var forJay = res.toLowerCase()
+	 wordFivePlayer.src=forJay;
+}
+</script>
+<script>
+function wordSixBuilder() {
+    var str1 = "http://www.howjsay.com/mp3/";
+	var str3 = ".mp3";
+    var res = str1.concat(wordSix.value).concat(str3);
+    document.getElementById("Button6").innerHTML = wordSix.value;
+	document.getElementById("Button6").innerHTML += "!"
+	var forJay = res.toLowerCase()
+	 wordSixPlayer.src=forJay;
+}
+</script>
+
+<script>
+function wordSevenBuilder() {
+    var str1 = "http://www.howjsay.com/mp3/";
+	var str3 = ".mp3";
+    var res = str1.concat(wordSeven.value).concat(str3);
+    document.getElementById("Button7").innerHTML = wordSeven.value;
+	document.getElementById("Button7").innerHTML += "!"
+	var forJay = res.toLowerCase()
+	 wordSevenPlayer.src=forJay;
+}
+</script>
+
+<script>
+function wordEightBuilder() {
+    var str1 = "http://www.howjsay.com/mp3/";
+	var str3 = ".mp3";
+    var res = str1.concat(wordEight.value).concat(str3);
+    document.getElementById("Button8").innerHTML = wordEight.value;
+	document.getElementById("Button8").innerHTML += "!"
+	var forJay = res.toLowerCase()
+	 wordEightPlayer.src=forJay;
+}
+</script>
+
+
+<script>
+var song = document.getElementById("backgroundmusic"); 
+
+function pauseSong() { 
+    song.pause(); 
+} 
+
+function playSong() { 
+    song.play(); 
+} 
+</script>
+
+
+</body>
+</html>
