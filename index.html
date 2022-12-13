@@ -7,17 +7,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
 <script src="https://use.fontawesome.com/e1ce4b5f90.js"></script>
 </head>
-<script>
-var song = document.getElementById("backgroundmusic"); 
 
-function pauseSong() { 
-    song.pause(); 
-} 
-
-function playSong() { 
-    song.play(); 
-} 
-</script>
 <body onload="playSong()">
 
 <audio controls autoplay hidden loop id="backgroundmusic">
@@ -219,7 +209,17 @@ function wordEightBuilder() {
 }
 </script>
 
+<script>
+var song = document.getElementById("backgroundmusic"); 
 
+function pauseSong() { 
+    song.pause(); 
+} 
+
+function playSong() { 
+    song.play(); 
+} 
+</script>
 
 
 
