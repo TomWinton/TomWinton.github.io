@@ -67,7 +67,7 @@
 <i class="fa fa-pause" aria-hidden="true"></i>
 </div>
 
-<div class="playpause" onclick="playSong()">
+<div class="playpause" onclick="playSong()" id="playStuff">
 <i class="fa fa-play" aria-hidden="true"></i>
 </div>
 
@@ -214,7 +214,8 @@ function pauseSong() {
 function playSong() { 
     song.play(); 
 } 
-	playSong();
+	var playTing = document.getElementById("playStuff"); 
+playTing.click();
 </script>
 
 </body>
